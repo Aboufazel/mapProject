@@ -24,15 +24,21 @@ const GetComponent = () => {
         e.preventDefault()
         const GetData = await GetVehicleUsers(`${form.tools}` , `${Data.authData}`)
              if(GetData.data.status === 1){
-                 alert(`شما به دنبال وسیله ${GetData.data.data[0].name} هستید `);
-                 dispatch({type:'GetVehicle' , payload:GetData});
-                 console.log(requestData);
-                 navigate('/map');
+                 if(GetData.data.data[0] === undefined){
+                     alert("وسیله مورد نظر یافت نشد")
+                 }else {
+                     alert(`شما به دنبال وسیله ${GetData.data.data[0].name} هستید `);
+                     dispatch({type:'GetVehicle' , payload:GetData});
+                     console.log(requestData);
+                     navigate('/map');
+                 }
              }else if (GetData.data.status === 0){
                  alert(GetData.data.message);
                  navigate('/login');
              }
+        console.log(GetData);
     }
+
 
     return(
         <Grid container mt={12} justifyContent={'center'} alignItems={'center'}>
