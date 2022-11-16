@@ -1,8 +1,8 @@
 import { MapContainer } from 'react-leaflet/MapContainer'
 import { TileLayer } from 'react-leaflet/TileLayer'
-import {Marker, Popup, useMap, useMapEvent, useMapEvents} from "react-leaflet";
+import {Marker,useMapEvents} from "react-leaflet";
 import L from 'leaflet';
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import MapStation from "../MapStation/MapStation";
 
 let MyIcon = L.icon({

@@ -22,7 +22,7 @@ export const SendRequest = (token , machine , lat ) =>{
         token,
         vehicleUserTypeId:0,
         machine,
-        lat
+        lat,
     })
 }
 

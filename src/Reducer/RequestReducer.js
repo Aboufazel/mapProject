@@ -4,7 +4,7 @@ const RequestReducer = (state , action) => {
     const { type, payload } = action;
 
     switch (type){
-        case 'GetVehicleUsers':
+        case 'GetVehicle':
             return payload.data
         default:
             return state

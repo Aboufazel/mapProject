@@ -14,4 +14,4 @@ const RequestContextProvider = ({children}) => {
 }
 
 
-export default RequestContext;
+export default RequestContextProvider;

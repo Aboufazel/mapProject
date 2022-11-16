@@ -4,14 +4,14 @@ import {useContext, useState} from "react";
 import {useNavigate} from "react-router";
 import {GetVehicleUsers} from "../../AxiosServices/AxiosServices";
 import {AuthContext} from "../../Context/auth";
-import MapStation from "../MapStation/MapStation";
+import {RequestContext} from "../../Context/Request";
 
 
 
 const GetComponent = () => {
     const navigate = useNavigate();
     const [form , setForm] = useState({token:'' , tools:''});
-    const {dispatch} = useContext(AuthContext)
+    const {requestData , dispatch} = useContext(RequestContext)
     const charLimit = 2;
     const Data = useContext(AuthContext);
 
@@ -25,7 +25,8 @@ const GetComponent = () => {
         const GetData = await GetVehicleUsers(`${form.tools}` , `${Data.authData}`)
              if(GetData.data.status === 1){
                  alert(`شما به دنبال وسیله ${GetData.data.data[0].name} هستید `);
-                 dispatch({type:'GetVehicleUsers' , payload:GetData});
+                 dispatch({type:'GetVehicle' , payload:GetData});
+                 console.log(requestData);
                  navigate('/map');
              }else if (GetData.data.status === 0){
                  alert(GetData.data.message);
