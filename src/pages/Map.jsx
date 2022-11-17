@@ -1,4 +1,4 @@
-import "../components/mapApi/style.css";
+
 import {Box} from "@mui/material";
 import LeafletMap from "../components/LeafletMap/LeafletMap";
 
