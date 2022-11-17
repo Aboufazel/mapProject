@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Yekan";
+    src:url("assets/fonts/YekanBakhFaNum-Regular.woff") format("woff");
+    font-weight: normal;
+}
+
+
+body {
+    margin: 0;
+    font-family: "Yekan",
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
