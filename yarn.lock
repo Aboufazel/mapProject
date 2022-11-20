@@ -1933,6 +1933,11 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
+"@mapbox/corslite@0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@mapbox/corslite/-/corslite-0.0.7.tgz#29f5b6a188ba946e514bdf0b6401ed4fbe13a39e"
+  integrity sha512-w/uS474VFjmqQ7fFWIMZINQM1BAQxDLuoJaZZIPES1BmeYpCtlh9MtbFxKGGDAsfvut8/HircIsVvEYRjQ+iMg==
+
 "@mapbox/extent@0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@mapbox/extent/-/extent-0.4.0.tgz#3e591f32e1f0c3981c864239f7b0ac06e610f8a9"
@@ -2008,6 +2013,11 @@
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@mapbox/point-geometry/-/point-geometry-0.1.0.tgz#8a83f9335c7860effa2eeeca254332aa0aeed8f2"
   integrity sha512-6j56HdLTwWGO0fJPlrZtdU/B13q8Uwmo18Ck2GnGgN9PCFyKTZ3UbXeEdRFh18i9XQ92eH2VdtpJHpBD3aripQ==
+
+"@mapbox/polyline@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@mapbox/polyline/-/polyline-0.2.0.tgz#6e25980744aa22331f94b645a542c02d3fcfee97"
+  integrity sha512-GCddO0iw6AzOQqZgBmjEQI9Pgo40/yRgkTkikGctE01kNBN0ThWYuAnTD+hRWrAWMV6QJ0rNm4m8DAsaAXE7Pg==
 
 "@mapbox/tiny-sdf@^1.1.1":
   version "1.2.5"
@@ -9629,6 +9639,15 @@ leaflet-css@^0.1.0:
   resolved "https://registry.yarnpkg.com/leaflet-css/-/leaflet-css-0.1.0.tgz#c1d07652092897b6321fa5caf634a15472ef152d"
   integrity sha512-KWbt3jNLkEBYl7S/rcj5CAUgHeVVvniHgv2qmkpRrQnyLy3cV1FkY3c68cbKXuYvQMR4J8NQxiPHrRmKq6t+dA==
 
+leaflet-routing-machine@^3.2.12:
+  version "3.2.12"
+  resolved "https://registry.yarnpkg.com/leaflet-routing-machine/-/leaflet-routing-machine-3.2.12.tgz#9e4aef008321b0227cf894d829c3b4c1f13e4e13"
+  integrity sha512-HLde58G1YtD9xSIzZavJ6BPABZaV1hHeGst8ouhzuxmSC3s32NVtADT+njbIUMW1maHRCrsgTk/E4hz5QH7FrA==
+  dependencies:
+    "@mapbox/corslite" "0.0.7"
+    "@mapbox/polyline" "^0.2.0"
+    osrm-text-instructions "^0.13.2"
+
 leaflet@^1.9.2:
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.9.2.tgz#168b6c6ef1d4d1e8409bde2c4ad050c249c4dbe6"
@@ -10653,6 +10672,11 @@ os-browserify@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/os-browserify/-/os-browserify-0.3.0.tgz#854373c7f5c2315914fc9bfc6bd8238fdda1ec27"
   integrity sha512-gjcpUc3clBf9+210TRaDWbf+rZZZEshZ+DlXMRCeAjp0xhTrnQsKHypIy1J3d5hKdUzj69t708EHtU8P6bUn0A==
+
+osrm-text-instructions@^0.13.2:
+  version "0.13.4"
+  resolved "https://registry.yarnpkg.com/osrm-text-instructions/-/osrm-text-instructions-0.13.4.tgz#78bedabd84cbcabce9c9fd0fbb6b0fd9f06c7f9f"
+  integrity sha512-ge4ZTIetMQKAHKq2MwWf83ntzdJN20ndRKRaVNoZ3SkDkBNO99Qddz7r6+hrVx38I+ih6Rk5T1yslczAB6Q9Pg==
 
 p-each-series@^2.1.0:
   version "2.2.0"

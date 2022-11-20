@@ -1,14 +1,14 @@
 import {Box, Button, FormControl, InputLabel, MenuItem, Select, TextField, Typography} from "@mui/material";
 import Theme from "../theme/Theme";
 import './style.css'
-import {useContext, useEffect, useState} from "react";
+import {useContext, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import api from "../../AxiosServices/AxiosServices";
 import {AuthContext} from "../../Context/auth";
 import {RequestContext} from "../../Context/Request";
 
 
-const MapStation = ({data}) => {
+const MapStation = ({data , end}) => {
     const navigate = useNavigate();
     const [color, setColor] = useState(false);
     const [form, setForm] = useState({machine: '', token: ''});
@@ -16,7 +16,6 @@ const MapStation = ({data}) => {
     const mach = []
     const Data = useContext(AuthContext);
     const Vehicle = useContext(RequestContext);
-
 
     const handleChange = (e) => {
         setForm({...form, [e.target.name]: e.target.value});
@@ -30,11 +29,13 @@ const MapStation = ({data}) => {
 
     const a = Object.entries(Vehicle);
     const b = Object.values(a[0][1]);
+
+
     b[2].map(item => (
         mach.push(item)
-    ))
-    console.log(mach)
+    ));
 
+    console.log(mach);
 
     const manageSubmit = async (e) => {
         e.preventDefault();
@@ -73,7 +74,7 @@ const MapStation = ({data}) => {
                                 sx={{color: 'red', fontWeight: '900', marginBottom: 3, fontSize: 16}}>
                         {`:مقصد`}
                         <Typography sx={{margin: 0}}>
-
+                            {`${end.lat === undefined ? "مقصد تعیین نشده" : end.lat}  ,  ${end.lng === undefined ? "مقصد تعیین نشده" : end.lng}`}
                         </Typography>
                     </Typography>
                 </Box>

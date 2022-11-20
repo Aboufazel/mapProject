@@ -45,10 +45,10 @@ const LoginForm = () => {
                 <Grid item xs={12} padding={5} justifyContent={'center'} alignItems={'center'}>
                     <form onSubmit={manageSubmit} style={{display: "flex", flexDirection: "column"}}>
                         <TextField name={'username'} value={form.username} onChange={manageChange} sx={{my: 2}}
-                                   label={'نام کاربری'} theme={Theme} InputLabelProps={{style: {fontFamily: "Yekan"}}}/>
+                                   label={'نام کاربری'} theme={Theme} InputLabelProps={{style: {fontFamily: "Yekan"}}} key={1}/>
                         <TextField type={'password'} name={'password'} value={form.password} onChange={manageChange}
                                    sx={{my: 2}} label={'کلمه عبور'} theme={Theme}
-                                   InputLabelProps={{style: {fontFamily: "Yekan"}}}/>
+                                   InputLabelProps={{style: {fontFamily: "Yekan"}}} key={2}/>
                         <Button onClick={manageSubmit} type={'submit'} variant="contained" component="label"
                                 color={'info'} theme={Theme} sx={{py: 2, borderRadius: 50, marginTop: 2}}>
                             ورود
