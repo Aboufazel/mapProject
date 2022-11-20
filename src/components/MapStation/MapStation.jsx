@@ -19,7 +19,9 @@ const MapStation = ({data , end}) => {
 
     const handleChange = (e) => {
         setForm({...form, [e.target.name]: e.target.value});
-        setColor(true)
+        if(end.lat !== undefined){
+            setColor(true)
+        }
     };
 
     const handleTools = (e) =>{

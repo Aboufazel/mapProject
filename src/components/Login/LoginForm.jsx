@@ -1,4 +1,4 @@
-import {Backdrop, Button, CircularProgress, Grid, TextField, Typography} from "@mui/material";
+import {Alert, Backdrop, Button, CircularProgress, Grid, Stack, TextField, Typography} from "@mui/material";
 import Theme from "../theme/Theme";
 import {useContext, useState} from "react";
 import {useNavigate} from "react-router-dom";
@@ -25,7 +25,10 @@ const LoginForm = () => {
       if(data.data.status === 1){
           alert(data.data.message);
           dispatch({type: 'UserData' , payload:data});
-          navigate('/get');
+          setTimeout(()=>{
+              navigate('/get');
+          } , 1000)
+
       }else {
           alert(data.data.message);
           navigate('/login')

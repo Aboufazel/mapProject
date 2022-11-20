@@ -5,7 +5,8 @@ import "leaflet-routing-machine";
 import {useMap, useMapEvents} from "react-leaflet";
 
 L.Marker.prototype.options.icon = L.icon({
-    iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png"
+    iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png",
+    iconAnchor:[0 , -41],
 });
 
 export default function Routing() {

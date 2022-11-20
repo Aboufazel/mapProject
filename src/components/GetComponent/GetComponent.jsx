@@ -1,4 +1,4 @@
-import {Button, Grid, TextField, Typography} from "@mui/material";
+import {Alert, Button, Grid, Stack, TextField, Typography} from "@mui/material";
 import Theme from "../theme/Theme";
 import {useContext, useState} from "react";
 import {useNavigate} from "react-router";
@@ -11,6 +11,8 @@ import {RequestContext} from "../../Context/Request";
 const GetComponent = () => {
     const navigate = useNavigate();
     const [form , setForm] = useState({token:'' , tools:''});
+    const [ok , setOk] = useState('none');
+    const [war, setWar] = useState('none');
     const {requestData , dispatch} = useContext(RequestContext)
     const charLimit = 2;
     const Data = useContext(AuthContext);
@@ -25,12 +27,19 @@ const GetComponent = () => {
         const GetData = await GetVehicleUsers(`${form.tools}` , `${Data.authData}`)
              if(GetData.data.status === 1){
                  if(GetData.data.data[0] === undefined){
-                     alert("وسیله مورد نظر یافت نشد")
+                     setWar('block');
+                     setTimeout(()=>{
+                         setWar('none');
+                         setForm({tools: ''});
+                     } , 1200)
                  }else {
-                     alert(`شما به دنبال وسیله ${GetData.data.data[0].name} هستید `);
                      dispatch({type:'GetVehicle' , payload:GetData});
+                     setOk('block')
                      console.log(requestData);
-                     navigate('/map');
+                     setTimeout(()=>{
+                         alert(`شما به دنبال وسیله ${GetData.data.data[0].name} هستید `);
+                         navigate('/map');
+                     } , 1000)
                  }
              }else if (GetData.data.status === 0){
                  alert(GetData.data.message);
@@ -41,7 +50,7 @@ const GetComponent = () => {
 
 
     return(
-        <Grid container mt={12} justifyContent={'center'} alignItems={'center'}>
+        <Grid container mt={12} sx={{flexDirection:"column"}} justifyContent={'center'} alignItems={'center'}>
             <Grid container item height={400} xs={10} lg={4} borderRadius={10} paddingY={2} boxShadow={5}>
                 <Grid container item justifyContent={'center'}>
                     <Typography variant={'h5'} theme={Theme} sx={{marginTop: 3}}>
@@ -59,10 +68,24 @@ const GetComponent = () => {
                                    InputLabelProps={{style: {fontFamily: "Yekan"}}}   helperText={`${form.tools.length}/${charLimit}`}/>
                         <Button onClick={manageRequest} type={'submit'} variant="contained" component="label"
                                 color={'warning'} theme={Theme} sx={{py: 2, borderRadius: 50, marginTop: 2}}>
-                            {'ثبت درخواست'}
+                            {'جستوجو ماشین آلات'}
                         </Button>
                     </form>
                 </Grid>
+            </Grid>
+            <Grid xs={3} mt={3}container item justifyContent={'center'} sx={{display:ok}} >
+                <Stack>
+                    <Alert icon={true} severity="success">
+                        {"جستوجو موفقیت آمیز بود"}
+                    </Alert>
+                </Stack>
+            </Grid>
+            <Grid xs={3} mt={3} container item justifyContent={'center'} sx={{display:war}} >
+                <Stack>
+                    <Alert icon={true} severity="error">
+                        {"متاسفیم!! وسیله مورد نظر یافت نشد"}
+                    </Alert>
+                </Stack>
             </Grid>
         </Grid>
     )
